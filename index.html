@@ -540,6 +540,25 @@ html{scroll-padding-top:0}
 @media (max-width:900px){.sr-grid{grid-template-columns:1fr}}
 @media (max-width:640px){.sr-shell{padding:8px;border-radius:26px}.sr-card{padding:13px;border-radius:20px}.cta .pill{width:100%;justify-content:space-between}}
 @media (prefers-reduced-motion:reduce){.pill.sr-jump,.pill.sr-jump:after{animation:none}}
+/* ---- portrait media only: fit preview + zoom + controls in one view ---- */
+.sr-port #sr-pv{width:auto;max-width:100%;max-height:min(68vh,620px);margin-left:auto;margin-right:auto}
+@media (min-width:901px){
+ .sr-port{grid-template-columns:1.15fr .85fr;align-items:start}
+ .sr-port>.sr-card:first-child{display:grid;grid-template-columns:minmax(0,max-content) minmax(0,1fr);column-gap:16px;align-content:start;align-items:start}
+ .sr-port>.sr-card:first-child>#sr-pv{grid-column:1;grid-row:1/span 4;max-height:min(80vh,700px);margin:0}
+ .sr-port>.sr-card:first-child>#sr-vc,.sr-port>.sr-card:first-child>.sr-row,.sr-port>.sr-card:first-child>.sr-hint,.sr-port>.sr-card:first-child>.sr-z{grid-column:2;margin-top:0}
+ .sr-port>.sr-card:first-child>#sr-vc[style*="flex"]{margin-bottom:12px}
+ .sr-port>.sr-card:first-child>.sr-row{margin-bottom:4px}
+ .sr-port>.sr-card:first-child>.sr-z{grid-row:4;margin-top:8px;flex-direction:column;gap:12px}
+ .sr-port>.sr-card:first-child>.sr-z>div{flex:none;font-size:13px;font-weight:600;color:var(--ink)}
+ .sr-port>.sr-card:first-child>.sr-z canvas{width:100%;max-width:none;height:auto;aspect-ratio:1/1;margin-top:6px}
+ .sr-port>.sr-card:first-child{grid-template-columns:minmax(0,max-content) minmax(170px,1fr)}
+}
+@media (max-width:900px){
+ .sr-port #sr-pv{max-height:min(60vh,520px)}
+ .sr-port .sr-z{max-width:360px;margin-left:auto;margin-right:auto}
+}
+
 
 /* ---- exact preset slots + delete confirm ---- */
 .srx.slots{padding:clamp(34px,6vh,64px) 0 clamp(30px,5vh,56px)}
@@ -1748,16 +1767,23 @@ function preset(){if(!base)return;const W=base.width,H=base.height,p=PR[S.pre],s
 function geom(W,H,P=S){const k=W/1200;return{r:P.pr*W*P.s,cx:P.px*W+P.x*k,cy:P.py*H+P.y*k}}
 let cache={k:'',m:null};
 function mask(W,H,g,P=S){if(g===undefined)g=P.g;const k=[W,H,P.px,P.py,P.pr,g,P.s,P.q,P.x,P.y].join();if(cache.k==k)return cache.m;
- const o=geom(W,H,P),x0=Math.max(0,Math.floor(o.cx-o.r-3)),y0=Math.max(0,Math.floor(o.cy-o.r-3)),x1=Math.min(W,Math.ceil(o.cx+o.r+4)),y1=Math.min(H,Math.ceil(o.cy+o.r+4)),w=Math.max(0,x1-x0),h=Math.max(0,y1-y0),a=new Float32Array(w*h);
- for(let j=0;j<h;j++)for(let i=0;i<w;i++){const u=Math.abs(x0+i+.5-o.cx)/o.r,v=Math.abs(y0+j+.5-o.cy)/o.r,d=Math.pow(Math.pow(u,P.q)+Math.pow(v,P.q),1/P.q);a[j*w+i]=Math.min(.95,A0*g*Math.min(1,Math.max(0,(1-d)/.05)))}
- cache={k,m:{x0,y0,w,h,a}};return cache.m}
+ const o=geom(W,H,P),x0=Math.max(0,Math.floor(o.cx-o.r-3)),y0=Math.max(0,Math.floor(o.cy-o.r-3)),x1=Math.min(W,Math.ceil(o.cx+o.r+4)),y1=Math.min(H,Math.ceil(o.cy+o.r+4)),w=Math.max(0,x1-x0),h=Math.max(0,y1-y0),a=new Float32Array(w*h),cv=new Uint8Array(w*h),e=new Uint8Array(w*h);
+ // anti-aliased coverage (4x4 supersampling) so edge pixels get the exact partial alpha instead of a hard stair-step ramp
+ for(let j=0;j<h;j++)for(let i=0;i<w;i++){let n=0;for(let sy=0;sy<4;sy++)for(let sx=0;sx<4;sx++){const u=Math.abs(x0+i+(sx+.5)/4-o.cx)/o.r,v=Math.abs(y0+j+(sy+.5)/4-o.cy)/o.r;if(Math.pow(Math.pow(u,P.q)+Math.pow(v,P.q),1/P.q)<=.975)n++}cv[j*w+i]=n;a[j*w+i]=Math.min(.95,A0*g*n/16)}
+ // edge band = partially covered pixels plus 1px around them
+ for(let j=0;j<h;j++)for(let i=0;i<w;i++){let hit=0;for(let dy=-1;dy<=1&&!hit;dy++)for(let dx=-1;dx<=1;dx++){const x=i+dx,y=j+dy;if(x<0||y<0||x>=w||y>=h)continue;const n=cv[y*w+x];if(n>0&&n<16){hit=1;break}}e[j*w+i]=hit}
+ cache={k,m:{x0,y0,w,h,a,e}};return cache.m}
 function clean(c,g,P=S){const W=c.width,H=c.height,m=mask(W,H,g,P);if(!m.w||!m.h)return;const ctx=c.getContext('2d',{willReadFrequently:true}),d=ctx.getImageData(m.x0,m.y0,m.w,m.h),p=d.data;
- for(let i=0;i<m.a.length;i++){const a=m.a[i];if(a<=0)continue;const q=i*4,f=1/(1-a);for(let c3=0;c3<3;c3++){const v=(p[q+c3]-255*a)*f;p[q+c3]=v<0?0:v>255?255:v}}ctx.putImageData(d,m.x0,m.y0)}
+ for(let i=0;i<m.a.length;i++){const a=m.a[i];if(a<=0)continue;const q=i*4,f=1/(1-a);for(let c3=0;c3<3;c3++){const v=(p[q+c3]-255*a)*f;p[q+c3]=v<0?0:v>255?255:v}}
+ // blend the thin edge band toward its clean neighbours to remove any faint leftover outline (light or dark)
+ const src=new Uint8ClampedArray(p),w=m.w,h=m.h;
+ for(let j=0;j<h;j++)for(let i=0;i<w;i++){if(!m.e[j*w+i])continue;for(let c3=0;c3<3;c3++){let sum=0,n=0;for(let dy=-2;dy<=2;dy++)for(let dx=-2;dx<=2;dx++){const x=i+dx,y=j+dy;if(x<0||y<0||x>=w||y>=h||m.e[y*w+x])continue;sum+=src[(y*w+x)*4+c3];n++}if(n){const q=(j*w+i)*4+c3;p[q]=.1*src[q]+.9*sum/n}}}
+ ctx.putImageData(d,m.x0,m.y0)}
 function frame(){if(S.tab=='video'&&vid&&vid.videoWidth){if(!base||base.width!=vid.videoWidth||base.height!=vid.videoHeight){base=document.createElement('canvas');base.width=vid.videoWidth;base.height=vid.videoHeight}base.getContext('2d').drawImage(vid,0,0)}}
 function draw(){const pv=$('pv'),pc=pv.getContext('2d');if(!base){pc.clearRect(0,0,pv.width,pv.height);for(const id of['zo','zc']){const z=$(id);z.getContext('2d').clearRect(0,0,z.width,z.height)}return}
  const W=base.width,H=base.height;if(wk.width!=W||wk.height!=H){wk.width=W;wk.height=H}
  const wc=wk.getContext('2d',{willReadFrequently:true});wc.drawImage(base,0,0);if(!S.cmp)clean(wk,S.g);
- const ph=Math.round(640*H/W);if(pv.height!=ph)pv.height=ph;pc.drawImage(wk,0,0,640,ph);const o=geom(W,H),z=Math.max(4,o.r*3),sc=640/W;
+ const ph=Math.round(640*H/W);if(pv.height!=ph)pv.height=ph;const gr=pv.closest('.sr-grid');if(gr)gr.classList.toggle('sr-port',H>W);pc.drawImage(wk,0,0,640,ph);const o=geom(W,H),z=Math.max(4,o.r*3),sc=640/W;
  if($('ring').checked&&!playing){pc.strokeStyle='rgba(0,122,255,.95)';pc.lineWidth=1.5;pc.beginPath();pc.arc(o.cx*sc,o.cy*sc,o.r*sc*1.25,0,7);pc.stroke()}
  for(const[id,src]of[['zo',base],['zc',wk]]){const zc=$(id).getContext('2d');zc.clearRect(0,0,160,160);zc.drawImage(src,o.cx-z,o.cy-z,2*z,2*z,0,0,160,160)}}
 function tick(){if(!vid||!isFinite(vid.duration))return;const f=t=>Math.floor(t/60)+':'+String(Math.floor(t%60)).padStart(2,'0');$('sk').value=Math.round(1000*vid.currentTime/vid.duration);$('tm').textContent=f(vid.currentTime)+' / '+f(vid.duration)}

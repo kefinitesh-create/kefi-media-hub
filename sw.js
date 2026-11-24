@@ -1,5 +1,5 @@
 /* Kefi Media Hub – offline service worker. Keep this file next to the HTML file. */
-var C='kefi-hub-sw-v15';
+var C='kefi-hub-sw-v16';
 var PATH=decodeURIComponent((new URL(self.location.href).searchParams.get('p'))||'./');
 self.addEventListener('install',function(e){
   self.skipWaiting();

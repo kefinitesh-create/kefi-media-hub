@@ -594,6 +594,56 @@ html{scroll-padding-top:0}
 @media (max-width:640px){.sl-nums{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media (max-width:480px){.sl-nums{grid-template-columns:repeat(2,minmax(0,1fr))}.sr-mrow{flex-direction:column-reverse}}
 @media (prefers-reduced-motion:reduce){.sr-mb{animation:none}}
+
+/* ---------- accounts, permissions, last-edit stamp ---------- */
+.edn{display:inline-block;min-width:22px;padding:1px 6px;margin-left:6px;border-radius:999px;background:rgba(255,255,255,.16);font-weight:700;font-size:.92em;letter-spacing:.04em;color:var(--ink);text-align:center;font-style:normal}
+.edl{display:block;margin-top:4px;font-size:11.5px;color:var(--faint)}
+.cdesc+.edl{margin-top:6px}
+.sl-ed:empty,.edl:empty{display:none}
+html.ro .pen,html.ro .wpa,html.ro .wpb,html.ro .socadd,html.ro .si.add,html.ro .go,html.ro .xg,html.ro .empty .pill,html.ro #sr-sv,html.ro .sl-del{display:none!important}
+html.ro .wp:not(.has) small{display:none}
+html.ro .cor{pointer-events:none}
+html.ro .sl-nums input{opacity:.7}
+.am{position:fixed;inset:0;z-index:130;display:grid;place-items:center;padding:16px;background:rgba(0,0,0,.6);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
+.am[hidden]{display:none}
+.amc{width:min(460px,100%);max-height:calc(100vh - 32px);max-height:calc(100dvh - 32px);overflow:auto;overscroll-behavior:contain;border-radius:24px;background:rgba(14,15,22,.99);border:1px solid var(--line);padding:20px 20px 18px;box-shadow:0 30px 80px rgba(0,0,0,.6)}
+.amh{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:14px}
+.amh b{font-size:18px}.amh small{display:block;color:var(--faint);font-size:12.5px;margin-top:3px;line-height:1.45;overflow-wrap:anywhere}
+.amx{flex:none;width:32px;height:32px;border-radius:50%;border:0;background:rgba(255,255,255,.1);color:var(--ink);cursor:pointer}
+.amp{font-size:13.5px;color:var(--mut);line-height:1.5;margin:0 0 12px}
+.ame{font-size:13px;color:#ff8a80;min-height:1.4em;margin:8px 2px 0;line-height:1.4}
+.amr{display:flex;gap:8px;margin-top:12px}.amr .xbtn{flex:1}
+.amlb{margin:18px 2px 2px;font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--faint)}
+.amu{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:14px;background:rgba(255,255,255,.06);margin-top:8px}
+.amu div{min-width:0;flex:1}.amu b{display:block;font-size:14px;overflow:hidden;text-overflow:ellipsis}.amu small{display:block;font-size:12px;color:var(--faint);overflow:hidden;text-overflow:ellipsis}
+.amn{flex:none;min-width:34px;height:34px;border-radius:50%;display:grid;place-items:center;font-size:13px;font-weight:700;background:linear-gradient(135deg,var(--a1),var(--a3));color:#fff}
+.amt{flex:none;border:1px solid var(--line);border-radius:999px;padding:6px 12px;font-size:12px;font-weight:600;cursor:pointer;background:rgba(255,255,255,.08);color:var(--ink);font-family:inherit}
+span.amt{cursor:default}
+.amt.on{background:linear-gradient(135deg,var(--a1),var(--a3));border-color:transparent;color:#fff}
+.amd{flex:none;width:30px;height:30px;border-radius:50%;border:0;background:rgba(255,69,58,.18);color:#ff8a80;cursor:pointer}
+.amk{display:flex;align-items:center;gap:8px;font-size:13.5px;color:var(--mut);margin:10px 2px 0}
+.amk input{width:18px;height:18px}
+.amc .xfld{margin-top:6px}
+/* sign-up tabs + permission area */
+.amtabs{display:flex;gap:4px;padding:4px;border-radius:999px;background:rgba(255,255,255,.07);border:1px solid var(--line);margin-bottom:12px}
+.amtabs button{flex:1;border:0;border-radius:999px;padding:9px 10px;font:inherit;font-size:13.5px;font-weight:600;color:var(--mut);background:transparent;cursor:pointer}
+.amtabs button.on{color:#fff;background:linear-gradient(135deg,var(--a1),var(--a3))}
+.amnm{display:flex;gap:8px;margin-top:6px}.amnm .xfld{margin-top:0}.amnm .xfld+.xfld{flex:none;width:76px;text-align:center;letter-spacing:.12em;font-weight:700;text-transform:lowercase}
+.amok{font-size:12.5px;color:var(--faint);min-height:1.3em;margin:6px 2px 0;line-height:1.4}.amok.good{color:#7ee0a0}.amok.no{color:#ff8a80}
+.pm{position:fixed;z-index:49;top:calc(80px + env(safe-area-inset-top,0px));right:max(14px,calc((100% - 1100px)/2 + 4px));display:flex;flex-direction:column;align-items:flex-end;gap:8px}
+.pm[hidden],.pmp[hidden]{display:none}
+.pmb{position:relative;display:inline-flex;align-items:center;gap:8px;height:36px;padding:0 14px;border-radius:999px;background:rgba(10,11,16,.62);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border:1px solid var(--line);font:inherit;font-size:13px;font-weight:600;color:var(--ink);cursor:pointer}
+.pmb:hover{background:rgba(255,255,255,.16)}
+.pmb i{font-style:normal;min-width:20px;height:20px;padding:0 6px;border-radius:10px;display:grid;place-items:center;font-size:11.5px;font-weight:700;color:#fff;background:linear-gradient(135deg,var(--a1),var(--a3))}
+.pmb.has{border-color:color-mix(in srgb,var(--a2) 70%,transparent);animation:srPulse 2.2s ease-in-out infinite}
+.pmp{width:min(350px,calc(100vw - 28px));max-height:min(62vh,430px);overflow:auto;padding:14px;border-radius:20px;background:rgba(14,15,22,.94);-webkit-backdrop-filter:blur(18px);backdrop-filter:blur(18px);border:1px solid var(--line);box-shadow:0 24px 60px rgba(0,0,0,.5)}
+.pmp .amh{margin-bottom:6px}
+.pmr{padding:10px 12px;border-radius:14px;background:rgba(255,255,255,.06);margin-top:8px}
+.pmr b{display:block;font-size:14px;overflow-wrap:anywhere}.pmr small{display:block;font-size:12px;color:var(--faint);overflow-wrap:anywhere;margin-top:2px}
+.pmr .pma{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.pmr .pma .amt{padding:7px 13px}
+
+@media (max-width:640px){.chb.acb{margin-left:0}}
 </style>
 </head>
 <body>
@@ -601,6 +651,7 @@ html{scroll-padding-top:0}
 <header class="nav" id="nav">
   <a class="brand" href="#top">Kefi Media Hub</a>
   <button type="button" class="chb" id="chb" aria-label="Open world chat"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20.5l1.4-4.6A8 8 0 1 1 21 12Z"/></svg><span>World chat</span><i class="chd" id="chd" hidden></i></button>
+  <button type="button" class="chb acb" id="acb" aria-label="Account and edit permission" style="display:none"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg><span class="acn" id="acn">Sign in</span></button>
   <div class="sbw" id="sbw">
     <label class="sb"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><input id="sq" type="search" placeholder="Search clients" autocomplete="off" autocapitalize="off" spellcheck="false" enterkeyhint="search" aria-label="Search clients"><button type="button" class="sbx" id="sqx" aria-label="Clear search" hidden>✕</button></label>
     <div class="sp" id="sp" hidden>
@@ -739,6 +790,8 @@ html{scroll-padding-top:0}
 </div>
 <input type="file" id="wpf" accept="image/*" hidden>
 <input type="file" id="icf" accept="image/*" hidden>
+<div class="am" id="am" hidden role="dialog" aria-modal="true" aria-label="Account"><div class="amc" id="amc"></div></div>
+<div class="pm" id="pm" hidden><button type="button" class="pmb" id="pmb" aria-label="Sign-up permissions" aria-expanded="false"><span>Permissions</span><i id="pmn" hidden>0</i></button><div class="pmp" id="pmp" hidden role="region" aria-label="Sign-up permissions"></div></div>
 <div class="xtoast" id="xtoast" role="status" aria-live="polite"></div>
 
 <script src="cloud-config.js"></script>
@@ -808,7 +861,7 @@ function card(it,i,ex){
       var th=f.img?' style="background-image:url('+f.img+')"':'';
       var lg='<div class="t lg"'+at+'><div style="display:flex;justify-content:space-between;align-items:center"><span class="e lgi" data-logo="'+i+'"'+th+'>'+(f.img?'':x[3])+'</span><span class="chip">Media</span></div><div><h4><span>01</span>Logo &amp; Outro</h4><p>'+esc(meta(f,x[2]))+'</p></div></div>';
       var wp=c.wall
-        ?'<div class="wp has" style="background-image:url('+c.wall+')"><div class="wpn">'+esc(c.t)+'</div>'+(c.wallAt?'<span class="wpt">Added '+fdt(c.wallAt)+'</span>':'')+'<button class="wpv" data-act="wpv" aria-label="Preview wallpaper for '+esc(c.t)+'"></button><div class="wpa"><button data-act="wp">Change</button><button data-act="wpx">Remove</button></div></div>'
+        ?'<div class="wp has" style="background-image:url('+c.wall+')"><div class="wpn">'+esc(c.t)+'</div>'+(c.wallAt?'<span class="wpt">Added '+edTag({at:c.wallAt,w:c.wallW})+'</span>':'')+'<button class="wpv" data-act="wpv" aria-label="Preview wallpaper for '+esc(c.t)+'"></button><div class="wpa"><button data-act="wp">Change</button><button data-act="wpx">Remove</button></div></div>'
         :'<div class="wp"><div class="wpn">'+esc(c.t)+'</div><button class="wpb" data-act="wp"><i>＋</i>Add wallpaper</button><small>A background picture that makes this client easy to recognise.</small></div>';
       return lg+wp;
     }
@@ -819,7 +872,7 @@ function card(it,i,ex){
     return '<div class="t '+a+'"'+at+'>'+(viz?'<div class="viz'+(a==='dr'||a==='pj'?' col':'')+'">'+viz+'</div>':'')+'<span class="e">'+x[3]+'</span><div><h4><span>'+k+'</span>'+esc(nm)+'</h4><p>'+esc(meta(f,k==='07'?'Premiere Pro & After Effects files':x[2]))+'</p></div></div>';
   }).join('');
   return '<article class="cd'+(ex?' ex':'')+'" data-i="'+i+'" style="--g1:'+g[0]+';--g2:'+g[1]+'" aria-label="'+esc(c.t)+'">'
-   +'<div class="ct"><div class="id"><span class="ic" '+ic+'>'+(c.img?'':esc(c.e||'⭐'))+'</span><div><div class="lb"><b>CLIENT '+pad(i+1)+' / '+pad(N)+'</b><button class="pen" data-act="icon" title="Change icon image" aria-label="Change icon image for '+esc(c.t)+'">'+IMGI+'<span>Change icon</span></button><button class="pen" data-act="ren" title="Rename client" aria-label="Rename '+esc(c.t)+'">'+PEN+'<span>Rename</span></button><button class="pen dg" data-act="del" title="Delete client" aria-label="Delete '+esc(c.t)+'">'+TRASH+'<span>Delete</span></button></div><small>'+esc(c.t)+'</small>'+(desc?'<small class="cdesc">'+esc(desc)+'</small>':'')+'</div></div>'
+   +'<div class="ct"><div class="id"><span class="ic" '+ic+'>'+(c.img?'':esc(c.e||'⭐'))+'</span><div><div class="lb"><b>CLIENT '+pad(i+1)+' / '+pad(N)+'</b><button class="pen" data-act="icon" title="Change icon image" aria-label="Change icon image for '+esc(c.t)+'">'+IMGI+'<span>Change icon</span></button><button class="pen" data-act="ren" title="Rename client" aria-label="Rename '+esc(c.t)+'">'+PEN+'<span>Rename</span></button><button class="pen dg" data-act="del" title="Delete client" aria-label="Delete '+esc(c.t)+'">'+TRASH+'<span>Delete</span></button></div><small>'+esc(c.t)+'</small>'+(desc?'<small class="cdesc">'+esc(desc)+'</small>':'')+(c.ed&&c.ed.at?'<small class="edl">Last edit · '+edTag(c.ed)+'</small>':'')+'</div></div>'
    +coBtn(c)
    +'</div>'
    +'<div class="bento">'+tiles+navHTML()+'</div>'
@@ -1122,12 +1175,13 @@ function commit(cid,fn){
   var s0=null;try{s0=JSON.parse(localStorage.getItem(KEY))}catch(e){}
   if(!s0||!s0.clients)return null;
   var c=s0.clients.filter(function(x){return x.id===cid})[0];if(!c)return null;
-  fn(c);
+  fn(c);c.ed=stamp();
   try{localStorage.setItem(KEY,JSON.stringify(s0))}catch(e){return null}
   qAdd({t:'c',id:cid});
   return c;
 }
 function act(i,a){
+  if(a!=='wpv'&&!needEdit())return;
   if(a==='icon')iconPick(i);
   else if(a==='soc'){xOpen(i);xEditSoc()}
   else if(a==='ren'){xOpen(i);xEditClient();var n=document.getElementById('xrn');if(n){n.focus();n.select()}}
@@ -1158,7 +1212,7 @@ function wpPick(i){
         c.width=Math.round(im.width*m);c.height=Math.round(im.height*m);
         c.getContext('2d').drawImage(im,0,0,c.width,c.height);
         var url=c.toDataURL('image/jpeg',.8),cid=list[i].c.id;
-        function done(u){var fresh=commit(cid,function(cl){cl.wall=u;cl.wallAt=Date.now()});
+        function done(u){var fresh=commit(cid,function(cl){cl.wall=u;cl.wallAt=Date.now();cl.wallW=curN()});
           if(!fresh){toast('Not enough storage to save this wallpaper. Try a smaller image.');return}
           list[i].c=fresh;refresh(i);toast('Wallpaper saved')}
         if(ON)c.toBlob(function(b){upObj('wall/'+cid+'.jpg',b).then(function(){done(pub('wall/'+cid+'.jpg')+'?v='+Date.now())}).catch(function(){done(url)})},'image/jpeg',.8);else done(url);
@@ -1170,7 +1224,7 @@ function wpPick(i){
   inp.click();
 }
 function wpRemove(i){
-  var fresh=commit(list[i].c.id,function(cl){delete cl.wall;delete cl.wallAt});
+  var fresh=commit(list[i].c.id,function(cl){delete cl.wall;delete cl.wallAt;delete cl.wallW});
   if(fresh){list[i].c=fresh;refresh(i);toast('Wallpaper removed')}
 }
 function wpPreview(i){
@@ -1215,15 +1269,15 @@ function xRoot(){
     return '<button class="xr" onclick="xFolder(\''+x[0]+'\')"><span class="xsq" style="'+xbg(GR[+x[0]-1])+'">'+x[3]+'</span><span class="xrt"><b><i>'+x[0]+'</i>'+esc(x[1])+'</b><small>'+esc(b.join(' · ')||f.d||x[2])+'</small></span><span class="xc">›</span></button>';
   }).join('');
   xDraw(xTile(c)+'<div class="xt"><h3>'+esc(c.t)+'</h3><p>8 folders · '+nf+' file'+(nf==1?'':'s')+' · '+nl+' link'+(nl==1?'':'s')+'</p></div><button class="xg" onclick="xEditClient()">'+PEN+'<span>Edit client</span></button>'+XCLOSE,
-    (c.desc?'<p class="xdesc">'+esc(c.desc)+'</p>':'')+'<div class="xlb">Choose a folder to view it</div>'+rows);
+    (c.desc?'<p class="xdesc">'+esc(c.desc)+'</p>':'')+(c.ed&&c.ed.at?'<div class="xcap" style="margin:10px 4px 0">Last edit · '+edTag(c.ed)+'</div>':'')+'<div class="xlb">Choose a folder to view it</div>'+rows);
 }
 
 /* ---------- one folder: VIEW mode ---------- */
 function fdt(t){if(!t)return'';try{return new Date(t).toLocaleString([],{day:'numeric',month:'short',year:'numeric',hour:'numeric',minute:'2-digit'})}catch(e){return''}}
-function xLinkRow(edit){return function(l,i){return '<div class="xlk"><a href="'+esc(l.u)+'" target="_blank" rel="noopener noreferrer"><b>'+esc(l.l)+'</b><span>'+esc(host(l.u))+' ↗</span>'+(l.at?'<small class="xdt">Added '+fdt(l.at)+'</small>':'')+'</a>'+(edit?'<button aria-label="Remove link" onclick="xDelLink('+i+')">✕</button>':'')+'</div>'}}
+function xLinkRow(edit){return function(l,i){return '<div class="xlk"><a href="'+esc(l.u)+'" target="_blank" rel="noopener noreferrer"><b>'+esc(l.l)+'</b><span>'+esc(host(l.u))+' ↗</span>'+(l.at?'<small class="xdt">Added '+edTag({at:l.at,w:l.w})+'</small>':'')+'</a>'+(edit?'<button aria-label="Remove link" onclick="xDelLink('+i+')">✕</button>':'')+'</div>'}}
 function xFileRows(fl,edit){
   return fl.map(function(m,i){var t=ftype(m.n);
-    return '<div class="xfr"><button class="xfb" onclick="xPvFile('+i+')"><span class="xth" id="xth'+m.id+'">'+(t==='image'?'':TI[t])+'</span><span class="xft"><b>'+esc(m.n)+'</b><small>'+(m.k?esc(m.k)+' · ':'')+fmt(m.s)+(m.at?' · '+fdt(m.at):'')+' · tap to preview</small></span></button>'
+    return '<div class="xfr"><button class="xfb" onclick="xPvFile('+i+')"><span class="xth" id="xth'+m.id+'">'+(t==='image'?'':TI[t])+'</span><span class="xft"><b>'+esc(m.n)+'</b><small>'+(m.k?esc(m.k)+' · ':'')+fmt(m.s)+(m.at?' · '+edTag({at:m.at,w:m.w}):'')+' · tap to preview</small></span></button>'
     +(edit?'<button class="xrm" aria-label="Remove file" onclick="xDelFile('+i+')">✕</button>':'<i>›</i>')+'</div>'}).join('');
 }
 function xThumbs(fl){fl.forEach(function(m){
@@ -1237,7 +1291,8 @@ function xFolder(k){
     '<div class="xlb">Guidance</div>'+(f.d?'<button class="xtx" onclick="xPvText()"><div class="xcl">'+esc(f.d)+'</div><em>Tap to preview full text</em></button>':'<div class="xno">No guidance added yet.</div>')
     +'<div class="xlb">Drive links</div>'+(f.links.length?f.links.map(xLinkRow(false)).join(''):'<div class="xno">No links added yet.</div>')
     +'<div class="xlb">Files</div>'+(f.files.length?xFileRows(f.files,false):'<div class="xno">No files uploaded yet.</div>')
-    +'<div class="xcap" style="margin-top:18px">Tap Edit to change anything. Nothing changes until you press Save changes.</div>');
+    +(f.ed&&f.ed.at?'<div class="xcap" style="margin-top:18px">Last edit · '+edTag(f.ed)+'</div>':'')
+    +'<div class="xcap" style="margin-top:'+(f.ed&&f.ed.at?'6':'18')+'px">'+(canEdit()?'Tap Edit to change anything. Nothing changes until you press Save changes.':'View only. Sign in with an approved email to edit.')+'</div>');
   xThumbs(f.files);
   document.getElementById('xb').scrollTop=0;
 }
@@ -1253,8 +1308,9 @@ function xPvText(){
 
 /* ---------- one folder: EDIT mode ---------- */
 function xEditF(){
+  if(!needEdit())return;
   var f=fo(XC(),X.k);
-  X.ED={k:X.k,d:f.d||'',links:f.links.map(function(l){return{l:l.l,u:l.u,at:l.at}}),files:f.files.map(function(m){return{id:m.id,n:m.n,s:m.s,k:m.k,at:m.at}}),fresh:{},gone:[],kind:'Logo',ll:'',lu:'',err:''};
+  X.ED={k:X.k,d:f.d||'',links:f.links.map(function(l){return{l:l.l,u:l.u,at:l.at,w:l.w}}),files:f.files.map(function(m){return{id:m.id,n:m.n,s:m.s,k:m.k,at:m.at,w:m.w}}),fresh:{},gone:[],kind:'Logo',ll:'',lu:'',err:''};
   xDrawF();document.getElementById('xb').scrollTop=0;
 }
 function xDrawF(){
@@ -1277,7 +1333,7 @@ function xDrawF(){
 function xAddLink(){
   var a=document.getElementById('xll'),b=document.getElementById('xlu'),h=fix(b.value);
   b.classList.toggle('bad',!h);if(!h){b.focus();return}
-  X.ED.links.push({l:a.value.trim()||host(h),u:h,at:Date.now()});X.ED.ll=X.ED.lu='';xDrawF();
+  X.ED.links.push({l:a.value.trim()||host(h),u:h,at:Date.now(),w:curN()});X.ED.ll=X.ED.lu='';xDrawF();
 }
 function xDelLink(i){X.ED.links.splice(i,1);xDrawF()}
 function xUpload(inp){
@@ -1285,7 +1341,7 @@ function xUpload(inp){
   files.forEach(function(file){
     if(file.size>MAXB){errs.push(file.name+' is '+fmt(file.size)+' (limit 50 MB). Add a Drive link instead.');return}
     var id='f'+Date.now().toString(36)+Math.random().toString(36).slice(2,7);
-    E.fresh[id]=file;E.files.push({id:id,n:file.name,s:file.size,k:kind,at:Date.now()});
+    E.fresh[id]=file;E.files.push({id:id,n:file.name,s:file.size,k:kind,at:Date.now(),w:curN()});
   });
   E.err=errs.join(' • ');xDrawF();
 }
@@ -1297,14 +1353,14 @@ function xDirtyF(){
 function xCancelF(){if(xDirtyF()&&!confirm('Discard your unsaved changes?'))return;xFolder(X.ED.k)}
 function xSaveF(){
   var E=X.ED,a=document.getElementById('xll'),b=document.getElementById('xlu');
-  if(b&&b.value.trim()){var h=fix(b.value);if(!h){b.classList.add('bad');b.focus();return}E.links.push({l:a.value.trim()||host(h),u:h,at:Date.now()})}
+  if(b&&b.value.trim()){var h=fix(b.value);if(!h){b.classList.add('bad');b.focus();return}E.links.push({l:a.value.trim()||host(h),u:h,at:Date.now(),w:curN()})}
   var i=X.i,cid=X.cid,k=E.k,ids=Object.keys(E.fresh),bad=[],p=Promise.resolve();
   ids.forEach(function(id){p=p.then(function(){return idb('readwrite',function(st){return st.put({b:E.fresh[id]},id)})}).catch(function(){bad.push(id)})});
   p.then(function(){
     function fail(msg){ids.forEach(function(id){idb('readwrite',function(st){return st.delete(id)}).catch(function(){})});E.err=msg;E.ll=E.lu='';xDrawF()}
     if(bad.length){fail('Could not save the new files. Browser storage is full or blocked. Remove some files and try again.');return}
     ids.forEach(function(id){qAdd({t:'f',cid:cid,id:id})});
-    var fresh=commit(cid,function(c){var f=fo(c,k);f.d=E.d;f.links=E.links;f.files=E.files});
+    var fresh=commit(cid,function(c){var f=fo(c,k);f.d=E.d;f.links=E.links;f.files=E.files;f.ed=stamp()});
     if(!fresh){fail('Could not save your changes. Browser storage is full. Remove some files and try again.');return}
     E.gone.forEach(function(id){qAdd({t:'d',cid:cid,id:id});idb('readwrite',function(st){return st.delete(id)}).catch(function(){})});
     list[i].c=fresh;refresh(i);xFolder(k);toast('Changes saved');
@@ -1320,7 +1376,7 @@ function cropIcon(file,cb){
     cb(c.toDataURL(file.type==='image/png'?'image/png':'image/jpeg',.88))};im.src=r.result};
   r.readAsDataURL(file);
 }
-function xEditClient(){var c=XC();X.EC={t:c.t,desc:c.desc||'',img:c.img,co:c.co||''};xDrawC()}
+function xEditClient(){if(!needEdit())return;var c=XC();X.EC={t:c.t,desc:c.desc||'',img:c.img,co:c.co||''};xDrawC()}
 function xDrawC(){
   var n=document.getElementById('xrn'),dd=document.getElementById('xrd');if(n&&X.EC)X.EC.t=n.value;if(dd&&X.EC)X.EC.desc=dd.value;
   var c=XC(),E=X.EC,tile=E.img?'<span class="xsq" style="background-image:url('+E.img+')"></span>':'<span class="xsq" style="'+xbg(c.g||GR[1])+'">'+esc(c.e||'⭐')+'</span>';
@@ -1346,11 +1402,13 @@ function xSaveC(){
 }
 
 function xDelC(){
+  if(!needEdit())return;
   var b=document.getElementById('xdel');
   if(b.dataset.s!=='1'){b.dataset.s='1';b.textContent='Tap again to delete this client and its files';return}
   delClient(X.i);
 }
 function delClient(i){
+  if(!needEdit())return;
   var c=list[i].c;
   var s0=null;try{s0=JSON.parse(localStorage.getItem(KEY))}catch(e){}
   if(!s0||!s0.clients){toast('Could not delete. Storage is not available.');return}
@@ -1363,6 +1421,7 @@ function delClient(i){
 
 /* ---------- social links: icon image + link, saved per client ---------- */
 function xEditSoc(){
+  if(!needEdit())return;
   var c=XC();
   X.SC={list:(c.soc||[]).map(function(x){return{n:x.n||'',u:x.u,img:x.img||''}}),ln:'',lu:'',limg:'',err:''};
   xDrawS();
@@ -1409,6 +1468,7 @@ function xSaveS(){
 /* ---------- new client (name, description, icon, colour) ---------- */
 var EM=['🏠','🏢','🛍️','🍽️','💎','🚗','🏥','🎓','🏋️','📣','🎬','⭐'];
 function newClient(){
+  if(!needEdit())return;
   document.getElementById('xpanel').innerHTML='';
   X.i=-1;X.cid='';X.ED=X.EC=X.SC=null;X.NC={t:'',desc:'',co:'',e:0,g:0,err:''};X.opener=document.activeElement;
   document.documentElement.classList.add('xl');document.getElementById('xs').classList.add('on');
@@ -1431,11 +1491,12 @@ function xnCo(k){X.NC.co=k;X.NC.err="";xDrawN()}
 function xnPick(k,i){X.NC[k]=i;xDrawN()}
 function xDirtyN(){var n=document.getElementById('xnn'),d=document.getElementById('xnd');return !!((n&&n.value.trim())||(d&&d.value.trim()))}
 function xCreate(){
+  if(!needEdit())return;
   var n=document.getElementById('xnn'),d=document.getElementById('xnd'),v=n.value.trim();
   if(!X.NC.co){X.NC.err='Choose first: is this client under NXT Estate, Alpha Ad or Independent?';xDrawN();return}
   n.classList.toggle('bad',!v);if(!v){n.focus();return}
   var N0=X.NC,f={};STD.forEach(function(x){f[x[0]]={d:'',links:[]}});
-  var c={id:'c'+Date.now().toString(36),t:v,co:N0.co,e:EM[N0.e],g:GR[N0.g],f:f};
+  var c={id:'c'+Date.now().toString(36),t:v,co:N0.co,e:EM[N0.e],g:GR[N0.g],f:f};c.ed=stamp();
   var ds=d.value.trim();if(ds)c.desc=ds;
   var s0=null;try{s0=JSON.parse(localStorage.getItem(KEY))}catch(e){}
   if(!s0||!s0.clients)s0={clients:[]};
@@ -1497,9 +1558,225 @@ addEventListener('keydown',function(e){
   if(e.key==='Escape')xTry();
 });
 
+/* ================= accounts · edit permission · last-edit stamp ================= */
+var AU=null,ME=null,RF=null,AM={mode:'in',step:'email',email:'',err:'',busy:0,list:null,ne:'',nc:false,lerr:'',meErr:'',amE:'',amP:'',amP2:'',amU:'',amC:'',req:null,pend:false,ok:''};
+var PM={list:[],open:0,known:null,t:0};
+try{var a0=JSON.parse(localStorage.getItem('kefi-auth'));if(a0&&a0.at&&a0.rt)AU=a0}catch(e){}
+try{if(AU){var m0=JSON.parse(localStorage.getItem('kefi-me'));if(m0&&m0.email&&m0.email===AU.email)ME=m0}}catch(e){}
+function saveAuth(){try{if(AU)localStorage.setItem('kefi-auth',JSON.stringify(AU));else{localStorage.removeItem('kefi-auth');localStorage.removeItem('kefi-me')}}catch(e){}}
+function jwtEmail(t){try{var b=String(t).split('.')[1].replace(/-/g,'+').replace(/_/g,'/');return String(JSON.parse(atob(b)).email||'').toLowerCase()}catch(e){return''}}
+function setAuth(j){AU={at:j.access_token,rt:j.refresh_token,exp:Date.now()+(+j.expires_in||3600)*1000,email:String((j.user&&j.user.email)||jwtEmail(j.access_token)||(AU&&AU.email)||'').toLowerCase()};saveAuth()}
+(function(){var h=location.hash;if(h.indexOf('access_token=')<0)return;var p=new URLSearchParams(h.replace(/^#/,''));
+  if(p.get('access_token')&&p.get('refresh_token')){setAuth({access_token:p.get('access_token'),refresh_token:p.get('refresh_token'),expires_in:p.get('expires_in')});ME=null;try{history.replaceState(null,'',location.pathname+location.search)}catch(e){}}})();
+function authTok(){if(!AU)return Promise.resolve(null);if(AU.exp-Date.now()>60000)return Promise.resolve(AU.at);return authRefresh()}
+function authRefresh(){
+  if(!AU)return Promise.resolve(null);if(RF)return RF;
+  RF=fetch(CLOUD.url+'/auth/v1/token?grant_type=refresh_token',{method:'POST',headers:{apikey:CLOUD.key,'Content-Type':'application/json'},body:JSON.stringify({refresh_token:AU.rt})})
+    .then(function(r){if(!r.ok)throw new Error(r.status);return r.json()})
+    .then(function(j){setAuth(j);return AU.at})
+    .catch(function(e){var c=+e.message;if(c>=400&&c<500){signOut(true);return null}return AU?AU.at:null})
+    .then(function(v){RF=null;return v});
+  return RF}
+function signOut(q){AU=null;ME=null;AM.list=null;AM.req=null;AM.pend=false;saveAuth();applyRole();if(!q)toast('Signed out')}
+/* who may edit: everyone when the cloud is off (device-only mode), otherwise only approved emails */
+function canEdit(){return !ON||!!(ME&&ME.can_edit)}
+function curN(){return ON&&ME&&ME.n?ME.n:''}
+function stamp(){return{w:curN(),at:Date.now()}}
+function edTag(e){return e&&e.at?fdt(e.at)+(e.w?'<b class="edn" aria-label="Last edited by user '+esc(e.w)+'">'+esc(e.w)+'</b>':''):''}
+function needEdit(){
+  if(canEdit())return true;
+  if(!AU){toast('Editing needs permission. Sign in with an approved email.');openAcct()}
+  else toast('Your account can only view. Ask kefinitesh@gmail.com for edit permission.');
+  return false}
+function applyRole(){
+  document.documentElement.classList.toggle('ro',!canEdit());
+  var b=document.getElementById('acb'),a=document.getElementById('acn');
+  if(b){b.style.display=ON?'':'none';
+    if(a)a.textContent=!AU?'Sign in':ME?ME.username:'Signed in';
+    b.title=!AU?'Sign in to edit':ME?(ME.is_admin?'Admin':ME.can_edit?'Editor':'View only'):'No access yet'}
+  document.querySelectorAll('#sr-slots input[data-f]').forEach(function(i){i.readOnly=!canEdit()});
+  pmSync();
+  var m=document.getElementById('am');if(m&&!m.hidden)drawAcct()}
+function emsg(x){return /fetch|network/i.test(x&&x.message||'')?'Could not reach the server. Check your connection.':(x&&x.message)||'Something went wrong.'}
+function rpc(n,a){return authTok().then(function(t){var h={apikey:CLOUD.key,'Content-Type':'application/json'};if(t)h.Authorization='Bearer '+t;
+  return fetch(CLOUD.url+'/rest/v1/rpc/'+n,{method:'POST',headers:h,body:JSON.stringify(a||{})})}).then(function(r){
+  return r.json().catch(function(){return null}).then(function(j){if(!r.ok){var e=new Error((j&&(j.message||j.msg))||('Error '+r.status));e.status=r.status;throw e}return j})})}
+function loadMe(){
+  if(!ON||!AU){ME=null;AM.req=null;applyRole();return Promise.resolve()}
+  var was=!!ME;
+  return rpc('kefi_me').then(function(rows){var m=rows&&rows[0];AM.meErr='';
+    ME=m?{email:String(m.email),username:m.username,n:String(m.code||pad(m.num)),can_edit:!!m.can_edit,is_admin:!!m.is_admin}:null;
+    try{if(ME)localStorage.setItem('kefi-me',JSON.stringify(ME));else localStorage.removeItem('kefi-me')}catch(e){}
+    if(ME){AM.req=null;if(!was&&AM.pend){AM.pend=false;toast('You are approved. Welcome!')}return}
+    return rpc('kefi_my_request').then(function(r){AM.req=(r&&r[0])||null;AM.pend=!!(AM.req&&AM.req.status==='pending')}).catch(function(){AM.req=null})
+  }).catch(function(e){
+    if(e.status===401){signOut(true);return}
+    if(e.status===404)AM.meErr='Access control is not set up yet. Run supabase-setup.sql in Supabase.';
+  }).then(applyRole)}
+function authFail(r){return r.json().catch(function(){return{}}).then(function(j){throw new Error(j.msg||j.error_description||j.message||('Error '+r.status))})}
+function authLogin(em,pw){return fetch(CLOUD.url+'/auth/v1/token?grant_type=password',{method:'POST',headers:{apikey:CLOUD.key,'Content-Type':'application/json'},body:JSON.stringify({email:em,password:pw})}).then(function(r){if(!r.ok)return r.json().catch(function(){return{}}).then(function(j){throw new Error(/invalid login/i.test(j.msg||j.error_description||'')?'Wrong email or password.':(j.msg||j.error_description||j.message||('Error '+r.status)))});return r.json()}).then(function(j){setAuth(j);ME=null;return loadMe()})}
+function authSignup(em,pw){return fetch(CLOUD.url+'/auth/v1/signup',{method:'POST',headers:{apikey:CLOUD.key,'Content-Type':'application/json'},body:JSON.stringify({email:em,password:pw})}).then(function(r){if(!r.ok)return authFail(r);return r.json()}).then(function(j){
+  if(!j.access_token)throw new Error('Supabase is still set to send confirmation emails. In Supabase open Authentication > Sign In / Providers > Email and turn OFF "Confirm email".');
+  setAuth(j);ME=null})}
+
+/* ---- account window: sign in, and (admin only) give access / edit permission ---- */
+function openAcct(){AM.err='';AM.lerr='';document.getElementById('am').hidden=false;drawAcct();if(AU)loadMe().then(function(){if(ME&&ME.is_admin)acctList()})}
+function closeAcct(){document.getElementById('am').hidden=true}
+function drawAcct(){
+  var c=document.getElementById('amc');if(!c)return;
+  var ne=document.getElementById('amne'),nc=document.getElementById('amnc'),e1=document.getElementById('ame1');
+  if(ne)AM.ne=ne.value;if(nc)AM.nc=nc.checked;if(e1)AM.email=e1.value;
+  ['amE','amP','amP2','amU','amC'].forEach(function(k){var el=document.getElementById(k);if(el)AM[k]=el.value});
+  function head(t,sub){return '<div class="amh"><div><b>'+t+'</b>'+(sub?'<small>'+sub+'</small>':'')+'</div><button type="button" class="amx" onclick="closeAcct()" aria-label="Close">✕</button></div>'}
+  var h='';
+  if(!AU){
+    var up=AM.mode==='up';
+    h=head(up?'Create account':'Sign in',up?'Pick a username. A member confirms your sign-up. No email or code is sent.':'Anyone can view. Only approved members can edit.')
+     +'<div class="amtabs"><button type="button" class="'+(up?'':'on')+'" onclick="acctMode(\'in\')">Sign in</button><button type="button" class="'+(up?'on':'')+'" onclick="acctMode(\'up\')">Create account</button></div>'
+     +'<input class="xfld" id="amE" type="email" autocomplete="email" inputmode="email" placeholder="Email" value="'+esc(AM.amE)+'">'
+     +'<input class="xfld" id="amP" type="password" autocomplete="'+(up?'new-password':'current-password')+'" placeholder="Password'+(up?' (8+ characters)':'')+'" value="'+esc(AM.amP)+'">';
+    if(up)h+='<input class="xfld" id="amP2" type="password" autocomplete="new-password" placeholder="Type the password again" value="'+esc(AM.amP2)+'">'
+     +'<div class="amnm"><input class="xfld" id="amU" maxlength="16" autocomplete="username" autocapitalize="none" placeholder="Username" value="'+esc(AM.amU)+'"><input class="xfld" id="amC" maxlength="2" autocapitalize="none" placeholder="ab" aria-label="Last two letters" value="'+esc(AM.amC)+'"></div>'
+     +'<div class="amok'+(AM.ok&&AM.ok.indexOf('✓')===0?' good':AM.ok?' no':'')+'" id="amok">'+esc(AM.ok||'Your username ends with 2 unique letters, for example nitesh + ab.')+'</div>';
+    h+='<div class="ame">'+esc(AM.err)+'</div>'
+     +'<div class="amr"><button type="button" class="xbtn" onclick="'+(up?'acctSignup()':'acctLogin()')+'"'+(AM.busy?' disabled':'')+'>'+(AM.busy?(up?'Creating…':'Signing in…'):(up?'Create account':'Sign in'))+'</button></div>';
+  }else{
+    var role=!ME?'':ME.is_admin?'Admin · gives access and edit permission':ME.can_edit?'Editor · can edit everything':'View only · no edit permission yet';
+    h=head('Your account',esc(AU.email));
+    if(ME)h+='<div class="amu"><span class="amn">'+esc(ME.n)+'</span><div><b>'+esc(ME.username)+'</b><small>'+role+'</small></div></div>';
+    else if(AM.meErr)h+='<p class="amp">'+esc(AM.meErr)+'</p>';
+    else if(AM.req&&AM.req.status==='pending')h+='<div class="amu"><span class="amn">…</span><div><b>'+esc(AM.req.username)+'</b><small>Waiting for a member to confirm your sign-up. This page updates by itself.</small></div></div>';
+    else{
+      h+='<p class="amp">'+(AM.req&&AM.req.status==='rejected'?'Your last request was not approved. You can send a new one with a different username.':'Pick a username to send your sign-up for confirmation.')+'</p>'
+       +'<div class="amnm"><input class="xfld" id="amU" maxlength="16" autocapitalize="none" placeholder="Username" value="'+esc(AM.amU)+'"><input class="xfld" id="amC" maxlength="2" autocapitalize="none" placeholder="ab" aria-label="Last two letters" value="'+esc(AM.amC)+'"></div>'
+       +'<div class="amok" id="amok">'+esc(AM.ok||'Your username ends with 2 unique letters, for example nitesh + ab.')+'</div><div class="ame">'+esc(AM.err)+'</div>'
+       +'<div class="amr"><button type="button" class="xbtn" onclick="acctRequest()"'+(AM.busy?' disabled':'')+'>'+(AM.busy?'Sending…':'Send sign-up')+'</button></div>'}
+    if(ME&&ME.is_admin){
+      h+='<div class="amlb">People with access</div>';
+      if(!AM.list)h+='<p class="amp">Loading…</p>';
+      else h+=AM.list.map(function(u,i){return '<div class="amu"><span class="amn">'+esc(u.code||pad(u.num))+'</span><div><b>'+esc(u.username)+'</b><small>'+esc(u.email)+'</small></div>'
+        +(u.is_admin?'<span class="amt on">Admin</span>':'<button type="button" class="amt'+(u.can_edit?' on':'')+'" onclick="acctToggle('+i+')">'+(u.can_edit?'Can edit':'View only')+'</button><button type="button" class="amd" aria-label="Remove access" onclick="acctRemove('+i+')">✕</button>')+'</div>'}).join('');
+      h+='<div class="amlb">Give access</div><input class="xfld" id="amne" type="email" inputmode="email" placeholder="Their email" value="'+esc(AM.ne)+'">'
+        +'<label class="amk"><input type="checkbox" id="amnc"'+(AM.nc?' checked':'')+'> Also allow editing</label>'
+        +'<div class="ame">'+esc(AM.lerr)+'</div><div class="amr"><button type="button" class="xbtn" onclick="acctAdd()">Give access</button></div>';
+    }
+    h+='<div class="amr"><button type="button" class="xbtn gh" onclick="acctOut()">Sign out</button></div>';
+  }
+  c.innerHTML=h;
+  if(!AU){var f=c.querySelector('input');if(f)f.focus({preventScroll:true})}
+}
+function acctMode(m){AM.mode=m;AM.err='';AM.ok='';drawAcct()}
+var EMR=/^[^@\s]+@[^@\s]+\.[^@\s]+$/;
+function acctLogin(){
+  var e=(document.getElementById('amE').value||'').trim().toLowerCase(),pw=document.getElementById('amP').value||'';AM.amE=e;AM.amP=pw;
+  if(!EMR.test(e)){AM.err='Enter a valid email address.';drawAcct();return}
+  if(!pw){AM.err='Enter your password.';drawAcct();return}
+  AM.busy=1;AM.err='';drawAcct();
+  authLogin(e,pw).then(function(){AM.busy=0;AM.amP=AM.amP2='';AM.err='';drawAcct();toast('Signed in');if(ME&&ME.is_admin)acctList()})
+    .catch(function(x){AM.busy=0;AM.err=emsg(x);drawAcct()});
+}
+function nameParts(){return{b:(AM.amU||'').trim().toLowerCase(),c:(AM.amC||'').trim().toLowerCase()}}
+function nameProblem(n){
+  if(!/^[a-z0-9]{3,16}$/.test(n.b))return 'Username must be 3-16 letters or numbers (no spaces).';
+  if(!/^[a-z]{2}$/.test(n.c))return 'The last two characters must be 2 letters (a-z).';
+  return''}
+function acctSignup(){
+  var e=(document.getElementById('amE').value||'').trim().toLowerCase();AM.amE=e;
+  ['amP','amP2','amU','amC'].forEach(function(k){AM[k]=document.getElementById(k).value||''});
+  var n=nameParts(),pr=nameProblem(n);
+  if(!EMR.test(e))pr='Enter a valid email address.';
+  else if(AM.amP.length<8)pr='Password needs at least 8 characters.';
+  else if(AM.amP!==AM.amP2)pr='The two passwords do not match.';
+  if(pr){AM.err=pr;drawAcct();return}
+  AM.busy=1;AM.err='';drawAcct();
+  rpc('kefi_name_free',{p_base:n.b,p_code:n.c}).then(function(r){
+    if(r!=='ok')throw new Error(r||'That username is not available.');
+    return authSignup(e,AM.amP)
+  }).then(function(){return rpc('kefi_request_access',{p_base:n.b,p_code:n.c})})
+    .then(function(r){AM.busy=0;AM.amP=AM.amP2='';AM.err='';toast(r==='member'?'Signed in':'Sign-up sent. A member will confirm it.');return loadMe()})
+    .then(function(){drawAcct()})
+    .catch(function(x){AM.busy=0;AM.err=emsg(x);if(AU&&!ME){loadMe()}else drawAcct()});
+}
+function acctRequest(){
+  ['amU','amC'].forEach(function(k){var el=document.getElementById(k);if(el)AM[k]=el.value||''});
+  var n=nameParts(),pr=nameProblem(n);if(pr){AM.err=pr;drawAcct();return}
+  AM.busy=1;AM.err='';drawAcct();
+  rpc('kefi_request_access',{p_base:n.b,p_code:n.c}).then(function(){AM.busy=0;AM.err='';toast('Sign-up sent. A member will confirm it.');return loadMe()}).then(function(){drawAcct()})
+    .catch(function(x){AM.busy=0;AM.err=emsg(x);drawAcct()});
+}
+/* live "is this username free?" while typing */
+var NT=0;
+function nameCheck(){
+  clearTimeout(NT);
+  var u=document.getElementById('amU'),c=document.getElementById('amC'),o=document.getElementById('amok');if(!u||!c||!o)return;
+  AM.amU=u.value;AM.amC=c.value;var n=nameParts();
+  if(!n.b&&!n.c){AM.ok='';o.className='amok';o.textContent='Your username ends with 2 unique letters, for example nitesh + ab.';return}
+  var pr=nameProblem(n);if(pr){AM.ok=pr;o.className='amok no';o.textContent=pr;return}
+  AM.ok='Checking…';o.className='amok';o.textContent='Checking…';
+  NT=setTimeout(function(){rpc('kefi_name_free',{p_base:n.b,p_code:n.c}).then(function(r){
+    var o2=document.getElementById('amok');if(!o2)return;var ok=r==='ok';AM.ok=ok?'✓ '+n.b+n.c+' is available':r;o2.className='amok '+(ok?'good':'no');o2.textContent=AM.ok}).catch(function(){})},350)}
+function acctOut(){signOut();AM.step='email';AM.email='';AM.err='';drawAcct()}
+function acctList(){rpc('kefi_list_access').then(function(rows){AM.list=rows||[];AM.lerr='';drawAcct()}).catch(function(x){AM.lerr=emsg(x);drawAcct()})}
+function acctAdd(){
+  var e=(document.getElementById('amne').value||'').trim().toLowerCase(),c=document.getElementById('amnc').checked;
+  if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(e)){AM.lerr='Enter a valid email address.';drawAcct();return}
+  rpc('kefi_add_access',{p_email:e,p_can_edit:c}).then(function(rows){var u=rows&&rows[0];AM.ne='';AM.nc=false;AM.lerr='';toast('Access given'+(u?' · username '+u.username:''));acctList()})
+    .catch(function(x){AM.lerr=emsg(x);drawAcct()});
+}
+function acctToggle(i){var u=AM.list&&AM.list[i];if(!u)return;
+  rpc('kefi_set_edit',{p_email:u.email,p_can_edit:!u.can_edit}).then(function(){toast(!u.can_edit?'Edit permission given':'Edit permission removed');acctList()}).catch(function(x){AM.lerr=emsg(x);drawAcct()})}
+function acctRemove(i){var u=AM.list&&AM.list[i];if(!u||!confirm('Remove all access for '+u.email+'? Their username number becomes free again.'))return;
+  rpc('kefi_remove_access',{p_email:u.email}).then(function(){toast('Access removed');acctList()}).catch(function(x){AM.lerr=emsg(x);drawAcct()})}
+document.getElementById('acb').addEventListener('click',openAcct);
+document.getElementById('am').addEventListener('click',function(e){if(e.target===this)closeAcct()});
+document.getElementById('am').addEventListener('keydown',function(e){
+  if(e.key==='Escape'){closeAcct();return}if(e.key!=='Enter')return;
+  var t=e.target.id;
+  if(t==='amE'||t==='amP'||t==='amP2'||t==='amU'||t==='amC'){e.preventDefault();if(AU)acctRequest();else if(AM.mode==='up')acctSignup();else acctLogin()}
+  else if(t==='amne')acctAdd()});
+document.getElementById('am').addEventListener('input',function(e){
+  var t=e.target;
+  if(t.id==='amC'){t.value=t.value.replace(/[^a-z]/gi,'').toLowerCase();nameCheck()}
+  else if(t.id==='amU'){t.value=t.value.replace(/[^a-z0-9]/gi,'').toLowerCase();nameCheck()}});
+
+/* ---- permission area: only members see it; they confirm or decline new sign-ups ---- */
+function pmSync(){
+  var b=document.getElementById('pm');if(!b)return;
+  var show=!!(ON&&AU&&ME);b.hidden=!show;
+  if(show){if(!PM.t)PM.t=setInterval(function(){if(!document.hidden)pmLoad()},20000);pmLoad()}
+  else{clearInterval(PM.t);PM.t=0;PM.list=[];PM.known=null;PM.open=0;var p=document.getElementById('pmp');if(p)p.hidden=true}}
+function pmLoad(){
+  if(!ME)return;
+  rpc('kefi_list_requests').then(function(rows){rows=rows||[];
+    if(PM.known)rows.forEach(function(r){if(!PM.known[r.email])toast('New sign-up request: '+r.username)});
+    PM.known={};rows.forEach(function(r){PM.known[r.email]=1});PM.list=rows;pmDraw()})
+   .catch(function(x){if(x.status===404||x.status===400){var b=document.getElementById('pm');if(b)b.hidden=true}})}
+function pmDraw(){
+  var n=PM.list.length,bd=document.getElementById('pmn'),b=document.getElementById('pmb'),p=document.getElementById('pmp');if(!bd||!b||!p)return;
+  bd.hidden=!n;bd.textContent=n;b.classList.toggle('has',n>0);b.setAttribute('aria-expanded',PM.open?'true':'false');p.hidden=!PM.open;
+  if(!PM.open)return;
+  var h='<div class="amh"><div><b>Sign-up permissions</b><small>Confirm or decline people who just created an account.</small></div><button type="button" class="amx" onclick="pmToggle()" aria-label="Close">✕</button></div>';
+  if(!n)h+='<p class="amp">No one is waiting right now.</p>';
+  else h+=PM.list.map(function(u,i){return '<div class="pmr"><b>'+esc(u.username)+'</b><small>'+esc(u.email)+'</small><div class="pma"><button type="button" class="amt on" onclick="pmAct('+i+',\'ok\')">Confirm</button>'
+    +(ME&&ME.is_admin?'<button type="button" class="amt" onclick="pmAct('+i+',\'edit\')">Confirm + can edit</button>':'')
+    +'<button type="button" class="amt" onclick="pmAct('+i+',\'no\')">Decline</button></div></div>'}).join('');
+  p.innerHTML=h}
+function pmToggle(){PM.open=PM.open?0:1;pmDraw();if(PM.open)pmLoad()}
+function pmAct(i,m){var u=PM.list[i];if(!u)return;
+  var call=m==='no'?rpc('kefi_reject',{p_email:u.email}):rpc('kefi_approve',{p_email:u.email,p_can_edit:m==='edit'});
+  call.then(function(){toast(m==='no'?'Declined '+u.username:'Confirmed '+u.username);pmLoad();var a=document.getElementById('am');if(ME&&ME.is_admin&&a&&!a.hidden)acctList()})
+    .catch(function(x){toast(emsg(x));pmLoad()})}
+document.getElementById('pmb').addEventListener('click',pmToggle);
+document.addEventListener('click',function(e){if(PM.open&&!e.target.closest('#pm')){PM.open=0;pmDraw()}});
+applyRole();
+if(ON&&AU){loadMe();setInterval(loadMe,60000);document.addEventListener('visibilitychange',function(){if(!document.hidden)loadMe()})}
+
 /* ================= online sync (Supabase REST, no SDK) ================= */
-function sb(p,o){o=o||{};o.headers=Object.assign(/^sb_/.test(CLOUD.key)?{apikey:CLOUD.key}:{apikey:CLOUD.key,Authorization:'Bearer '+CLOUD.key},o.headers||{});
-  return fetch(CLOUD.url+p,o).then(function(r){if(!r.ok)throw new Error(r.status);return r})}
+function sb(p,o){o=o||{};
+  return authTok().then(function(t){
+    var h={apikey:CLOUD.key};if(t)h.Authorization='Bearer '+t;else if(!/^sb_/.test(CLOUD.key))h.Authorization='Bearer '+CLOUD.key;
+    o.headers=Object.assign(h,o.headers||{});
+    return fetch(CLOUD.url+p,o)}).then(function(r){if(!r.ok)throw new Error(r.status);return r})}
 function pub(p){return CLOUD.url+'/storage/v1/object/public/'+BKT+'/'+p}
 function upObj(p,b){return sb('/storage/v1/object/'+BKT+'/'+p,{method:'POST',headers:{'x-upsert':'true','Content-Type':b.type||'application/octet-stream'},body:b})}
 function cloudFile(cid,id){
@@ -1545,7 +1822,7 @@ function flush(){
     var o=qGet()[0];if(!o){FL=0;cst(OKT);res();return}
     doOp(o).then(function(){qDrop(o);step()}).catch(function(e){
       var c=+e.message;FL=0;cst('Not synced yet · will retry');
-      if(c>=400&&c<500&&c!==408&&c!==429){qDrop(o);toast('Cloud refused a save ('+c+'). Check the Supabase setup.')}
+      if(c>=400&&c<500&&c!==408&&c!==429){qDrop(o);if(c===401||c===403){toast('Not saved online: your account has no edit permission.');loadMe()}else toast('Cloud refused a save ('+c+'). Check the Supabase setup.')}
       else toast('Saved on this device. It will sync online when the connection is back.');
       res(true);
     });
@@ -1809,7 +2086,7 @@ $('un').onclick=()=>jump(-1);$('re').onclick=()=>jump(1);
 document.addEventListener('keydown',e=>{if(!(e.ctrlKey||e.metaKey)||e.target.tagName=='TEXTAREA'||e.target.isContentEditable||e.target.tagName=='INPUT'&&e.target.type!='range')return;const sec=document.getElementById('sparkle'),br=sec.getBoundingClientRect();if(br.bottom<0||br.top>innerHeight||document.querySelector('.xs.on,.xv.on'))return;const k=e.key.toLowerCase();if(k=='z'){e.preventDefault();jump(e.shiftKey?1:-1)}else if(k=='y'){e.preventDefault();jump(1)}});
 const SK=t=>'sparkle-remover:'+t;
 function applySaved(t){Object.assign(S,DEF);try{const v=localStorage.getItem(SK(t));if(v){setSnap(v);return true}}catch(e){}return false}
-async function saveNow(){const t=S.tab,sn=snap();let loc=1;try{localStorage.setItem(SK(t),sn)}catch(e){loc=0}
+async function saveNow(){if(!needEdit())return;const t=S.tab,sn=snap();let loc=1;try{localStorage.setItem(SK(t),sn)}catch(e){loc=0}
  if(typeof ON!=='undefined'&&ON){$('msg').textContent='Saving to the cloud…';try{await sb('/rest/v1/kefi_presets?on_conflict=id',{method:'POST',headers:{'Content-Type':'application/json',Prefer:'resolution=merge-duplicates,return=minimal'},body:JSON.stringify({id:'settings:'+t,data:{snap:sn},updated_at:new Date().toISOString()})});
   $('msg').textContent='Saved to the cloud for '+t+'s. These settings now load automatically for everyone, and you can change and save them again any time.'}
  catch(e){$('msg').textContent=(e.message=='404'?'Cloud table missing: run the updated supabase-setup.sql in Supabase. ':'Cloud save failed. ')+(loc?'Saved on this device only.':'')}}
@@ -1873,17 +2150,17 @@ const cput=(id,data,ts)=>sb('/rest/v1/kefi_presets?on_conflict=id',{method:'POST
 const cdel=id=>sb('/rest/v1/kefi_presets?id=eq.'+encodeURIComponent(id),{method:'DELETE'});
 const delImg=p=>p?sb('/storage/v1/object/'+BKT+'/'+p,{method:'DELETE'}).catch(()=>{}):0;
 const cerr=e=>e&&e.message=='404'?'Cloud table missing: run the updated supabase-setup.sql in Supabase.':'Cloud save failed, check your connection.';
-grid.innerHTML=SLOTS.map(([k,t,o])=>`<div class="sl-card" data-k="${k}"><div class="sl-top"><div><b>${t}</b><span>${o}</span></div><em class="sl-st">Empty</em></div>
+grid.innerHTML=SLOTS.map(([k,t,o])=>`<div class="sl-card" data-k="${k}"><div class="sl-top"><div><b>${t}</b><span>${o}</span></div><em class="sl-st">Empty</em></div><small class="sl-ed edl"></small>
 <div class="sl-nums"><label>Strength ×<input type="number" data-f="g" step=".01" min=".5" max="6" inputmode="decimal"></label><label>Size ×<input type="number" data-f="s" step=".01" min=".4" max="8" inputmode="decimal"></label><label>Shape (pointiness)<input type="number" data-f="q" step=".01" min=".35" max="4" inputmode="decimal"></label><label>Nudge X<input type="number" data-f="x" step=".5" min="-160" max="160" inputmode="decimal"></label><label>Nudge Y<input type="number" data-f="y" step=".5" min="-160" max="160" inputmode="decimal"></label></div>
 <div class="sl-act"><button type="button" class="sr-btn p" data-a="use">Apply to remover</button><button type="button" class="sr-btn sl-del" data-a="del">Delete</button></div>
 <p class="sl-msg">Set the ${o.toLowerCase()} ${k.split('-')[0]} values. They save to the cloud automatically.</p></div>`).join('');
-function fields(k){const s=SL[k],d=dflt(k);card(k).querySelectorAll('input[data-f]').forEach(i=>{const f=i.dataset.f;i.placeholder=fmt(d[f]);i.value=s?fmt(+s[f]||0):''})}
-function refresh(k){const c=card(k),s=SL[k];c.classList.toggle('has',!!s);c.querySelector('.sl-st').textContent=s?'Saved':'Empty';
+function fields(k){const s=SL[k],d=dflt(k);card(k).querySelectorAll('input[data-f]').forEach(i=>{const f=i.dataset.f;i.placeholder=fmt(d[f]);i.value=s?fmt(+s[f]||0):'';i.readOnly=!canEdit()})}
+function refresh(k){const c=card(k),s=SL[k];c.classList.toggle('has',!!s);c.querySelector('.sl-st').textContent=s?'Saved':'Empty';c.querySelector('.sl-ed').innerHTML=s&&s.ed&&s.ed.at?'Last edit · '+edTag(s.ed):'';
  for(const a of['del','use'])c.querySelector('[data-a='+a+']').disabled=!s;fields(k);document.getElementById('sr-slcount').textContent=Object.keys(SL).filter(x=>SL[x]).length+' / 4 saved'}
-async function saved(k){lastEdit[k]=Date.now();const s=SL[k];if(!s)return;const w=k.split('-')[1]=='land'?'landscape':'portrait',kind=k.split('-')[0];
+async function saved(k){lastEdit[k]=Date.now();const s=SL[k];if(!s)return;s.ed=stamp();card(k).querySelector('.sl-ed').innerHTML='Last edit · '+edTag(s.ed);const w=k.split('-')[1]=='land'?'landscape':'portrait',kind=k.split('-')[0];
  if(!CL){const r=persist();note(k,r?'Saved on this device (cloud is not configured). Used automatically for '+w+' '+kind+'s.':'Could not save here: browser storage is blocked or full.');return}
  const oldPath=s.path;s.path='';s.name='';s.ts=new Date().toISOString();persist();note(k,'Saving to the cloud…');
- try{await cput('slot:'+k,{px:s.px,py:s.py,pr:s.pr,s:s.s,q:s.q,g:s.g,x:s.x,y:s.y,name:'',path:''},s.ts);if(oldPath)delImg(oldPath);note(k,'Saved to the cloud and shared with all users. Used automatically for '+w+' '+kind+'s.');hint('Synced with the cloud. Presets are shared with all users.')}
+ try{await cput('slot:'+k,{px:s.px,py:s.py,pr:s.pr,s:s.s,q:s.q,g:s.g,x:s.x,y:s.y,name:'',path:'',ed:s.ed},s.ts);if(oldPath)delImg(oldPath);note(k,'Saved to the cloud and shared with all users. Used automatically for '+w+' '+kind+'s.');hint('Synced with the cloud. Presets are shared with all users.')}
  catch(e){note(k,cerr(e)+' Kept on this device for now.')}
  lastEdit[k]=Date.now()}
 function applySlot(k){const s=SL[k];if(!s)return;const kind=k.split('-')[0],ori=k.split('-')[1],nm=SLOTS.find(x=>x[0]==k),cur0=base?(base.width>=base.height?'land':'port'):null;
@@ -1892,12 +2169,12 @@ function applySlot(k){const s=SL[k];if(!s)return;const kind=k.split('-')[0],ori=
  document.getElementById('sparkle').scrollIntoView({behavior:'smooth',block:'start'});
  $('msg').textContent='Applied your '+nm[2].toLowerCase()+' '+nm[1].toLowerCase()+'. '+(!L().length?'Add a '+kind+' to see it in action.':cur0&&S.tab==kind&&cur0!=ori?'Heads up: the open file is '+(cur0=='land'?'landscape':'portrait')+', this preset is for '+nm[2].toLowerCase()+'.':'Fine-tune with the sliders, then Save settings to keep it.')}
 for(const[k]of SLOTS){const c=card(k);
- c.querySelectorAll('input[data-f]').forEach(i=>{i.onchange=()=>{const v=parseFloat(i.value);if(!isFinite(v)){fields(k);return}
+ c.querySelectorAll('input[data-f]').forEach(i=>{i.onchange=()=>{if(!needEdit()){fields(k);return}const v=parseFloat(i.value);if(!isFinite(v)){fields(k);return}
    const f=i.dataset.f;let s=SL[k];if(!s)s=SL[k]=dflt(k);lastEdit[k]=Date.now();
    const R={g:[.5,6],s:[.4,8],q:[.35,4],x:[-160,160],y:[-160,160]}[f];s[f]=clamp(v,R[0],R[1]);
    refresh(k);saved(k)};i.onkeydown=e=>{if(e.key==='Enter'){e.preventDefault();i.blur()}}});
  c.querySelector('[data-a=use]').onclick=()=>applySlot(k);
- c.querySelector('[data-a=del]').onclick=async()=>{const t=SLOTS.find(x=>x[0]==k),s=SL[k];if(!s)return;
+ c.querySelector('[data-a=del]').onclick=async()=>{const t=SLOTS.find(x=>x[0]==k),s=SL[k];if(!s||!needEdit())return;
   if(!await confirmDel('Delete this preset?','This removes the '+t[2].toLowerCase()+' '+t[1].toLowerCase()+' values for everyone. The remover goes back to its default position.'))return;
   if(CL){try{await cdel('slot:'+k)}catch(e){note(k,'Could not delete from the cloud. Nothing was changed.');return}delImg(s.path)}
   delete SL[k];persist();refresh(k);note(k,'Deleted. Enter new values any time.')}
